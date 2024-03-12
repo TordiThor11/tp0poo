@@ -1,4 +1,4 @@
-import java.util.Date;
+import java.time.LocalDateTime;
 
-public record TiempoRecord(Date fecha) {
+public record TiempoRecord(LocalDateTime fecha) {
 }

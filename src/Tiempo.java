@@ -1,21 +1,23 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class Tiempo {
-    private Date fecha;
+    private LocalDateTime fecha;
 
     public Tiempo() {
-        this.fecha = new Date();
+        this.fecha = LocalDateTime.now();
+    }
+
+    public Tiempo(LocalDateTime fecha) {
+        this.fecha = fecha;
     }
 
     public String retornarFormatoCorto() {
-        SimpleDateFormat formatoCorto = new SimpleDateFormat("dd/MM/yyyy");
-        return formatoCorto.format(fecha);
+        return DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).format(fecha);
     }
 
     public String retornarFormatoLargo() {
-        SimpleDateFormat formatoLargo = new SimpleDateFormat("EEEE d 'de' MMMM 'de' yyyy", new Locale("es", "ES"));
-        return formatoLargo.format(fecha);
+        return DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(fecha);
     }
 }

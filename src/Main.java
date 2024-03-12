@@ -1,4 +1,4 @@
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class Main {
           TiempoAnemico solo almacena datos*/
 
         //Uso de record
-        TiempoRecord tiempoRecord = new TiempoRecord(new Date());
+        TiempoRecord tiempoRecord = new TiempoRecord(LocalDateTime.now());
         //Formato largo:
         System.out.println(TiempoServicios.formatearFechaLarga(tiempoRecord.fecha()));
         //Formato corto:
